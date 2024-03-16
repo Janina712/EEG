@@ -5,6 +5,6 @@
 
 - Script adapted from Cohen, ch. 13.11 (https://github.com/mikexcohen/AnalyzingNeuralTimeSeries/blob/main/chapter13.m)
 
-  **Coherence Analysis**
+**Coherence Analysis**
   
 - Methods based on Menn et al., 2022 (https://pubmed.ncbi.nlm.nih.gov/35158023/)
