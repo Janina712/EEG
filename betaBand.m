@@ -1,4 +1,4 @@
-% cahnge EEG file sampling rate to 164
+% change EEG file sampling rate to 164
 
 load(['perceived_env_3_4Hz.mat']); % or load short wav with 16000 fs x 3
 
@@ -81,13 +81,13 @@ for k = 1:n_w
     
     % Definte convolution parameters
     n_wavelet            = length(time);
-    n_data               = round(w_time);             %%%%???????????????????????? seq_time * no_tones?       
+    n_data               = round(w_time);                   
     n_convolution        = n_wavelet+n_data-1;
     n_conv_pow2          = pow2(nextpow2(n_convolution));
     half_of_wavelet_size = (n_wavelet-1)/2;  % should be two periods of center frequency (20 Hz --> 100 ms)
     
     % get FFT of data
-    eegfft = fft(right_chans,n_conv_pow2);       %%%%seq_time * trials??                                      % change hemisphere!!
+    eegfft = fft(right_chans,n_conv_pow2);                                           % change hemisphere!!
     
     % initialize
     eegpower = zeros(num_frex,round(w_time)); % if seq_time corresponds to eeg.pnts here, it has to be multiplied above
@@ -105,7 +105,7 @@ for k = 1:n_w
         
         % Average power over trials (baseline transform)
         temppower = abs(eegconv).^2;    %% mean(abs(reshape(eegconv,EEG.pnts,EEG.trials)).^2,2); %% trials
-        eegpower(fi,:) = 10*log10(temppower./mean(temppower(baseidx(1):baseidx(2):2))); % why :2     
+        eegpower(fi,:) = 10*log10(temppower./mean(temppower(baseidx(1):baseidx(2):2)));    
     end
 
     eegpower_all_seqs(k,:,:)= eegpower;  
